@@ -31,11 +31,13 @@ for f in ls:
     w = p["streams"][0]["width"]
     n = 8
     o = 2
-    while h/n > 480 or w/n > 480:
+    while h/n > 360 or w/n > 360:
         n += 1
-    while h/o > 2048 or w/o > 2048:
+    while h/o > 1024 or w/o > 1024:
         o += 1
     print(f"\x1b[1A\x1b[K{f} [{m}/{l} {(m*3+1)/(l*3)*100:.2f}%] :")
-    os.system(f"ffmpeg -i \"{f}\" -vf scale={w/n:.0f}:{h/n:.0f} \"{f}-smol.webp\" -{y} 2> /dev/null")
+    # os.system(f'convert "{f}" -thumbnail 360x360\\> -grayscale Rec709Luminance "{f}-smol.webp"')
+    os.system(f"ffmpeg -i \"{f}\" -vf scale={w/n:.0f}:{h/n:.0f},format=gray \"{f}-smol.webp\" -{y} 2> /dev/null")
     print(f"\x1b[1A\x1b[K{f} [{m}/{l} {(m*3+2)/(l*3)*100:.2f}%] |")
+    # os.system(f'convert "{f}" -thumbnail 1080x1080\\> "{f}-med.webp"')
     os.system(f"ffmpeg -i \"{f}\" -vf scale={w/o:.0f}:{h/o:.0f} \"{f}-med.webp\" -{y} 2> /dev/null")

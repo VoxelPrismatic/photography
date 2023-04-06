@@ -14,14 +14,14 @@ st = f"""
         <meta charset="utf-8" />
 
         <!-- PRELOAD -->
-        <link rel="preload" src="/prizm.dev/assets/script/min.js" type="text/javascript" as="script"/>
-        <link rel="preload" src="/prizm.dev/assets/css/priz-pink.css" type="text/css" as="stylesheet"/>
-        <link rel="preload" src="/prizm.dev/assets/css/fonts.css" type="text/css" as="stylesheet"/>
-        <link rel="preload" src="/prizm.dev/assets/css/ubuntu/Ubuntu-BI.ttf" type="font/sfnt" as="font"/>
-        <link rel="preload" src="/prizm.dev/assets/css/ubuntu/Ubuntu-RI.ttf" type="font/sfnt" as="font"/>
-        <link rel="preload" src="/prizm.dev/assets/css/ubuntu/Ubuntu-B.ttf" type="font/sfnt" as="font"/>
-        <link rel="preload" src="/prizm.dev/assets/css/ubuntu/Ubuntu-R.ttf" type="font/sfnt" as="font"/>
-        <link rel="preload" src="/prizm.dev/assets/image/webp/priz_pink.webp" type="image/webp" as="image"/>
+        <link rel="preload" src="/assets/script/min.js" type="text/javascript" as="script"/>
+        <link rel="preload" src="/assets/css/priz-pink.css" type="text/css" as="stylesheet"/>
+        <link rel="preload" src="/assets/css/fonts.css" type="text/css" as="stylesheet"/>
+        <link rel="preload" src="/assets/css/ubuntu/Ubuntu-BI.ttf" type="font/sfnt" as="font"/>
+        <link rel="preload" src="/assets/css/ubuntu/Ubuntu-RI.ttf" type="font/sfnt" as="font"/>
+        <link rel="preload" src="/assets/css/ubuntu/Ubuntu-B.ttf" type="font/sfnt" as="font"/>
+        <link rel="preload" src="/assets/css/ubuntu/Ubuntu-R.ttf" type="font/sfnt" as="font"/>
+        <link rel="preload" src="/assets/image/webp/priz_pink.webp" type="image/webp" as="image"/>
 
         <!-- STATIC BETWEEN PAGES -->
         <meta name="theme-color" content="#FF0088">
@@ -30,20 +30,20 @@ st = f"""
         <meta name="twitter:site" content="@VoxelPrismatic">
         <meta name="twitter:creator" content="@VoxelPrismatic">
         <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:image" content="https://voxelprismatic.github.io/prizm.dev/assets/image/photography/laguna/{main}.webp-med.webp" />
+        <meta name="twitter:image" content="https://voxelprismatic.github.io/assets/image/photography/laguna/{main}.webp-med.webp" />
 
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://voxelprismatic.github.io/prizm.dev/photos/{folder}" />
+        <meta property="og:url" content="https://voxelprismatic.github.io/photos/{folder}" />
         <meta property="og:site_name" content="PRIZ ;]">
 
-        <meta property="og:image" content="https://voxelprismatic.github.io/prizm.dev/assets/image/webp/favi/priz_pink.webp" />
+        <meta property="og:image" content="https://voxelprismatic.github.io/assets/image/webp/favi/priz_pink.webp" />
         <meta property="og:image:type" content="image/webp" />
         <meta property="og:image:width" content="256" />
         <meta property="og:image:height" content="256" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <link rel="icon" type="image/png" href="/prizm.dev/assets/image/favicon.png" />
-        <link rel="stylesheet" type="text/css" id="priz_neon_css" href="/prizm.dev/assets/css/priz-pink.css" />
+        <link rel="icon" type="image/png" href="/assets/image/favicon.png" />
+        <link rel="stylesheet" type="text/css" id="priz_neon_css" href="/assets/css/priz-pink.css" />
 
         <!-- DYNAMIC BETWEEN PAGES -->
         <meta property="og:title" content="{folder.upper()} ;]" id="title" />
@@ -64,12 +64,12 @@ st = f"""
     </head>
     <body class="bgcolor" style="background-color: #221115;">
         <div id="logo">
-            <img src="/prizm.dev/assets/image/webp/priz_pink.webp" alt="[prizm logo]" id="truelogo" tabindex="-1" height="156px" onclick="location='/prizm.dev/photos'"/>
+            <img src="/assets/image/webp/priz_pink.webp" alt="[prizm logo]" id="truelogo" tabindex="-1" height="156px" onclick="location='/photos'"/>
         </div>
         <h1 id="head" tabindex="-1">{folder.upper()} ;]</h1>
         <div id="content">
             <div class="sect" style="transition: none 0s ease 0s;">
-                <h1 onclick="linkMe(this);" id="{folder.upper()}">#] {folder.upper()}</h1><br>
+                <h1 onclick="linkMe(this);" id="{folder.upper()}">{folder.upper()}</h1><br>
                 This is an album filled with backdrops. All of these were taken with the small
                 Galaxy S8 [SM-G950U] and watermarked for display. If you would like to receive a
                 copy without the watermark and with the metadata [except for location], please
@@ -91,8 +91,8 @@ while a and b:
     c = c.replace(" ", "-")
     b = input("Pic file: ")
     st += f"""
-                <h2 onclick="linkMe(this);" id="{c}">#] {a}</h2><br>
-                <img controls="true" alt="{b}.webp" title="birb1.webp" data-src="/prizm.dev/assets/image/photography/{folder}/{b}.webp"><br><br>
+                <h2 onclick="linkMe(this);" id="{c}">{a}</h2>
+                <img controls="true" alt="{b}.webp" title="{b}.webp" data-src="/assets/image/photography/{folder}/{b}.webp"><br><br>
 """
 
 st += f"""
@@ -104,10 +104,10 @@ st += f"""
                         <br />
                         <b style="font-size: larger;">BY PRIZ WITH WINKY BRACKET FACE ;]</b><br />
                         <span id="links_and_sources" tabindex="-1">
-                            <a href="/prizm.dev" target="" tabindex="0">Home page</a> //
-                            <a id="page_source_about" target="_blank" rel="noreferrer" href="https://github.com/VoxelPrismatic/prizm.dev/blob/master/photos/{folder}.html" tabindex="0">View source</a>
+                            <a href="/" target="" tabindex="0">Home page</a> //
+                            <a id="page_source_about" target="_blank" rel="noreferrer" href="https://github.com/VoxelPrismatic/voxelprismatic.github.io/blob/master/photos/{folder}.html" tabindex="0">View source</a>
                         <br />
-                        <span id="copyright">© PRIZ ;], 2021</span>
+                        <span id="copyright">© PRIZ ;], 2023</span>
                         <br>
                         <span id="funnytextthing" tabindex="-1">*loading funny text thing</span><br />
                         <br />
@@ -122,12 +122,12 @@ st += f"""
                 var loader = "main";
             </script>
             <a id="hiddenlink" tabindex="0"></a>
-            <script type="text/javascript" src="/prizm.dev/assets/script/min.js" id="min.js"></script>
-            <script type="text/javascript" src="/prizm.dev/assets/script/photos.js" id="photos.js"></script>
+            <script type="text/javascript" src="/assets/script/min.js" id="min.js"></script>
+            <script type="text/javascript" src="/assets/script/photos.js" id="photos.js"></script>
             <script type="text/javascript" defer>
                 loadNow();
             </script>
-            <link rel="stylesheet" type="text/css" href="/prizm.dev/assets/css/fonts.css">
+            <link rel="stylesheet" type="text/css" href="/assets/css/fonts.css">
         </div>
         <div id="jumper" onclick="jumpToEdge()">[V]</div>
     </body>
