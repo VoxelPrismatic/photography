@@ -4,9 +4,21 @@ import argparse
 
 # Get target folder
 parser = argparse.ArgumentParser()
-parser.add_argument("target", nargs = "+")
+parser.add_argument("target", nargs = "*")
 parser.add_argument("-n", default = False, action = "store_true")
+parser.add_argument("-a", default = False, action = "store_true")
 args = parser.parse_args()
+
+if args.a:
+    for d in os.listdir("."):
+        if d == ".git":
+            continue
+        if not os.path.isdir(d):
+            continue
+        st = "python3 resize.py '" + d + "'"
+        print("\x1b[94;1m" + st + "\x1b[0m")
+        os.system(st)
+    exit()
 
 # Start converting
 ls = []
